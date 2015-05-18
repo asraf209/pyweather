@@ -1,12 +1,8 @@
-    #!/usr/bin/python
-
+#!/usr/bin/python
 import urllib2
 
-
-def main():
+def get_response(url):
     print "Hello World.."
-    url = 'https://developer.yahoo.com/'
-    
     try:
 	    conn = urllib2.urlopen(url)
 	    #print "Http responce: %s" % conn.info()
@@ -17,6 +13,9 @@ def main():
 	    print "HTTP error: %d" % e.code
     except urllib2.URLError, e:
 	    print "Network error: %s" % e.reason.args[1]
+	    
+def main():
+    response = get_response('https://developer.yahoo.com/')
 
 if __name__ == '__main__':
     main()
