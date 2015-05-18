@@ -11,11 +11,14 @@ def get_response(url):
     
     except urllib2.HTTPError, e:
 	    print "HTTP error: %d" % e.code
+	    return None
     except urllib2.URLError, e:
 	    print "Network error: %s" % e.reason.args[1]
+	    return None
 	    
 def main():
-    response = get_response('https://developer.yahoo.com/')
+    response = get_response('https://developer.yahoo.com12/')
+    print response
 
 if __name__ == '__main__':
     main()
