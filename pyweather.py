@@ -15,10 +15,16 @@ def get_response(url):
     except urllib2.URLError, e:
 	    print "Network error: %s" % e.reason.args[1]
 	    return None
-	    
+
+
+def process_data(data):
+    pass
+
+    
 def main():
-    response = get_response('https://developer.yahoo.com12/')
-    print response
+    response = get_response('https://developer.yahoo.com/')
+    if response != None:
+        process_data(response)
 
 if __name__ == '__main__':
     main()
