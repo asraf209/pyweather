@@ -1,5 +1,7 @@
 #!/usr/bin/python
+
 import urllib2
+import sys
 
 def get_response(url):
     print "Hello World.."
@@ -15,6 +17,9 @@ def get_response(url):
     except urllib2.URLError, e:
 	    print "Network error: %s" % e.reason.args[1]
 	    return None
+    except:
+        print "Unexpected error: ", sys.exec_info()[0]
+        return None
 
 
 def process_data(data):
@@ -25,6 +30,7 @@ def main():
     response = get_response('https://developer.yahoo.com/')
     if response != None:
         process_data(response)
+
 
 if __name__ == '__main__':
     main()
